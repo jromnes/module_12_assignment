@@ -1,52 +1,45 @@
-# module_12_assignment
+# Module 12 Assignment: Credit Risk Classification
 
 ## Overview of the Analysis
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
+__Purpose of the Analysis:__
+The purpose of this analysis is to develop and evaluate machine learning models to predict and identify the creditworthiness of borrowers. This analysis aims to assist in making informed decisions regarding creditworthiness of borrowers.
 
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any resampling method).
+__Financial Information in the Data and Prediction Target:__
+The data contains various financial features related to loans, such as loan_size, interest_rate, borrower_income, debt_to_income, num_of_accounts, derogatory_marks, total_debt, and loan_status. The prediction target is the loan status, with a binary classification of "healthy" (0) or "high-risk" (1).
+
+__Basic Information about the Variables/Data:__
+* loan_size: The size or amount of the loan requested by the borrower.
+* interest_rate: The rate at which interest is charged on the loan amount, typically expressed as a percentage.
+* borrower_income: The income of the borrower, which may be used to assess the borrower's ability to repay the loan.
+* debt_to_income: The ratio of the borrower's total debt to their income, often used by lenders to evaluate the borrower's financial health and ability to manage additional debt.
+* num_of_accounts: The number of financial accounts (e.g., credit cards, loans) that the borrower has open.
+* derogatory_marks: The number of derogatory marks on the borrower's credit report, which may include late payments, defaults, or bankruptcies.
+* total_debt: The total amount of debt owed by the borrower across all accounts.
+* loan_status: The target variable indicating the loan status, with values typically encoded as:
+  * 0: Healthy loan (indicating that the borrower is likely to repay the loan)
+  * 1: High-risk loan (indicating a higher likelihood of defaulting on the loan)
 
 ## Results
 
-Using bulleted lists, describe the balanced accuracy scores and the precision and recall scores of all machine learning models.
+### Machine Learning Model 1 (Original Data):
+* Balanced Accuracy Score: __0.9520__
+* Precision:
+  - Class 0 (Healthy loans): __1.00__
+  - Class 1 (High-risk loans): __0.85__
+* Recall:
+  - Class 0 (Healthy loans): __0.99__
+  - Class 1 (High-risk loans): __0.91__
 
-* Machine Learning Model 1:
-  * Description of Model 1 Accuracy, Precision, and Recall scores.
-For the 0 (healthy loan) label:
-Precision: 1.00
- Recall: 0.99
-Specificity: 0.91
-F1 Score: 1.00
-For the 1 (high-risk loan) label:
-Precision: 0.85
-Recall: 0.91
-Specificity: 0.99
-F1 Score: 0.88
-
-
-* Machine Learning Model 2:
-  * Description of Model 2 Accuracy, Precision, and Recall scores.
-For the 0 (healthy loan) label:
-Precision: 1.00
-Recall: 0.99
-Specificity: 0.99
-F1 Score: 1.00
-
-For the 1 (high-risk loan) label:
-Precision: 0.84
-Recall: 0.99
-Specificity: 0.99
-F1 Score: 0.91
-
+### Machine Learning Model 2 (Oversampled Data):
+* Balanced Accuracy Score: __0.9937__
+* Precision:
+  -  Class 0 (Healthy loans): __1.00__
+  - Class 1 (High-risk loans): __0.84__
+* Recall:
+  - Class 0 (Healthy loans): __0.99__
+  - Class 1 (High-risk loans): __0.99__ 
 
 ## Summary
 
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
-* Which one seems to perform best? How do you know it performs best? The model that performs the best is ther Oversampled model. For the healthy loans, the oversampled model improved specificity. The Oversampled model also improved recall and F1 for the high-risk loans, while precision did lower, it still is reasonable.
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
-
-If you do not recommend any of the models, please justify your reasoning.
+Model 2 outperformed Model 1 with a higher Balanced Accuracy score (0.9937 compared to 0.9520). Model 2 also showed improved precision, recall, and F1 score for predicting high-risk loans (1) while maintaining high performance for healthy loans (0). The performance improvement in Model 2 can be attributed to the use of oversampling techniques to address class imbalance, which leads to better classification of high-risk loans. Therefore, Model 2 is recommended for use due to its better overall performance in accurately classifying both healthy and high-risk loans. 
